@@ -1,0 +1,122 @@
+def intro():
+    print("\n--- THE MAGIC FOREST ---")
+    print('''You wake up in a clearing to sunlight and birdsong.
+            There is a large doorway in front of you, with stairs leading down
+            into the darkness.''')
+    choice = input("Do you go [down] the door or [stay] in the clearing? ").lower()
+    
+    if "down" in choice:
+        guardians()
+    elif "stay" in choice:
+        print('''The ground beneath you skakes, birds fly off and animals run away.
+                The monster you were running from has finally found you.''')
+        monster()
+    else:
+        print("Invalid choice. The forest consumes you.")
+        game_over()
+
+def guardians():
+    print("\n--- DOWN THE STAIRS ---")
+    print('''You find two stone giants guarding a door.
+             They raise their weapons and demand that you leave or die!''')
+    print("You are desperate.")
+    choice = input("Do you [fight] the giants, [leave], or [tell] them your story? ").lower()
+    
+    if "fight" in choice:
+        print('''\nThe giants decapitate you within moments and
+                pay their respects to your passing by singing. It is beautiful.
+                Your soul finds peace''')
+        print("Bad Ending.")
+        game_over()
+    elif "tell" in choice:
+        print("\n'Tell them your story':")
+        cure = input("Miraculous cure: ")
+        reason = input("Reason: ")
+        name = input("Name: ")
+        place = input("Place: ")
+        adjective= input("Adjective: ")
+        kingdom = input("Kingdom: ")
+
+    
+        story = f"""
+        In your pursuit for a {cure} to {reason},
+        you encountered a powerful monster,in fear for your life,
+        you decided to seek help from {name}, the great and powerful wizard of {place}.
+        Who defeated the Lord of {adjective} and saved the kingdom of {kingdom}!
+        """
+        print(story)
+
+        print("\nYour story moves the stone giants.")
+        print("They allow you to enter and wish you the best of luck!")
+        wizard()
+
+        
+        
+    elif "leave" in choice:
+        print('''\nYou compare your options and wisely decide to retreat for now
+                and come back with reinforcements.''')
+        print("With a plan in mind, you return to the clearing.")
+        print('''The Forest is quiet. Too quiet. A shadow blots out the sun.
+              The monster has found you and the forest trills at the promise of blood.''')
+        monster()
+    else:
+        guardians()
+
+def wizard():
+    print("\n--- THE WIZARD ---")
+    print('''You enter the door to darkness.
+            You folow the sound of water and find an endless body of water
+            You step into an unmanned boat near the shore.
+            It moves on its own as if pulled by unseen hands.
+            An old woman greats you at the dock.
+            She tells you she will help you find the wizard if you can pass her tests''')
+
+    
+    choice = input("Do you go [accept] or [refuse]? ").lower()
+    
+    if "refuse" in choice:
+        print('''\nThe old woman reveals herself as the wizard and attacks you!
+        You pull out your sword and shield and move to defend yourself
+        when the monster appears behind you and lunges at the wizard!
+        The monster and wizard fight ruthlessly.
+        Scared but determined you fling your sword at the wizard's feet.
+        The wizard trips and it allows the monster the chance to rip her throat out.
+        With blood dripping down their chin, the monster turns to you.''')
+        monster()
+
+    elif "accept" in choice:
+        print('''You witch gives you trial after trial.
+                None satisfy her enough to keep her word
+                You grow more and more tired until eventually you collapse of exhaustion.
+                With your last breath, you curse the old woman. She laughs.
+                It is distraction enough to use your last bit of strength
+                to stab her through the heart''')
+        game_over()
+
+    
+        
+
+def monster():
+    print("\n--- THE MONSTER ---")
+    print('''Suddenly the monster kneels down and asks for your hand in marraige
+            They witnessed you in your pursuit for the cure
+            and was immpressed by your tenacity and willpower
+            Their attempts to court you came off as
+            death threats due to the clash in cultures
+            They are here now to put their heart on the line and beg for a chance''')
+    choose=input("What will you do?:")
+    c=f"You decide to {choose} them."
+    print(c)
+    print("Happy Ending!")
+    game_over()
+
+def game_over():
+    print("\n--- GAME OVER ---")
+    play_again = input("Play again? (yes/no) ").lower()
+    if play_again == "yes":
+        intro()
+    else:
+        print("Thanks for playing!")
+
+
+intro()
